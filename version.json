@@ -1,21 +1,21 @@
 ﻿{
-    "version":  "1.1.0-beta.8",
-    "pub_date":  "2026-08-18T10:30:21Z",
-    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.8/medicare-windows-setup-1.1.0-beta.8.exe",
-    "sha256":  "5f4b36b0e0323192d2fa595c9189494ea87fccd962031cc7347f13c54f668a90",
-    "notes":  "Medicare Release 1.1.0-beta.8",
+    "version":  "1.1.0-beta.9",
+    "pub_date":  "2026-08-18T11:01:40Z",
+    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.9/medicare-windows-setup-1.1.0-beta.9.exe",
+    "sha256":  "a2627b6a9b1fd3be63889713fd35d4a167c808480d2c2d348ea4e76d02d8ff33",
+    "notes":  "Medicare Release 1.1.0-beta.9",
     "windows":  {
-                    "version":  "1.1.0-beta.8",
-                    "pub_date":  "2026-08-18T10:30:21Z",
-                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.8/medicare-windows-setup-1.1.0-beta.8.exe",
-                    "sha256":  "5f4b36b0e0323192d2fa595c9189494ea87fccd962031cc7347f13c54f668a90",
-                    "notes":  "Medicare Windows Release 1.1.0-beta.8"
+                    "version":  "1.1.0-beta.9",
+                    "pub_date":  "2026-08-18T11:01:40Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.9/medicare-windows-setup-1.1.0-beta.9.exe",
+                    "sha256":  "a2627b6a9b1fd3be63889713fd35d4a167c808480d2c2d348ea4e76d02d8ff33",
+                    "notes":  "Medicare Windows Release 1.1.0-beta.9"
                 },
     "android":  {
-                    "version":  "1.1.0-beta.8",
-                    "pub_date":  "2026-08-18T10:30:21Z",
-                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.8/medicare-android-1.1.0-beta.8.apk",
+                    "version":  "1.1.0-beta.9",
+                    "pub_date":  "2026-08-18T11:01:40Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.9/medicare-android-1.1.0-beta.9.apk",
                     "sha256":  "b0833645efbb2e1f97814ca93ea7287b04b401f5597578fef82bc85f6e1beeaa",
-                    "notes":  "Medicare Android Release 1.1.0-beta.8"
+                    "notes":  "Medicare Android Release 1.1.0-beta.9"
                 }
 }
