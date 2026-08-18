@@ -1,0 +1,20 @@
+# https://dart.dev/tools/private-files
+# Created by `dart pub`
+.dart_tool/
+
+# Database files
+*.db
+academy.db
+
+# Executables
+*.exe
+bin/*.exe
+server.exe
+academia.exe
+
+# Installer script & compiled setup (release artifacts — built from main branch only)
+Academia_Installer.iss
+installer_output/
+
+# Build output directory (compiled binaries + bundled dist)
+build/

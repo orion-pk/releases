@@ -1,0 +1,43 @@
+ACADEMY PLATFORM COMPLETE MODULES AND FEATURES GUIDE
+
+OVERVIEW
+This is the simple guide for the whole Academy app. It covers all the backend stuff, frontend screens, and modules we have built in this project.
+
+1. LOGIN AND AUTHENTICATION
+- Login Screen: This is the main page where any user types their username and password to log in.
+- Password Hashing: On the backend, passwords are not stored in plain text. They are hashed using BCrypt so nobody can steal them.
+- Token Sessions: When you log in, the server gives you a JWT token. The app saves this in your browser so you stay logged in.
+- Wrong Password Defense: If someone tries typing wrong passwords repeatedly, the backend automatically locks them out so they cannot brute force the account.
+
+2. SUPER ADMIN GOVERNANCE AND USER MANAGEMENT
+- Admin Dashboard Screen: When Super Admin logs in, they see a big dashboard showing total users in the app, active roles, and total permissions.
+- User and Role Manager Screen: A full table listing every single user in the app with their email, phone number, role, and status.
+- Add New User Modal: Clicking the Add User button opens a popup window. You can type in a username, password, email, phone number, pick a role, and click Create Account to add a new person immediately.
+- Search and Filtering: There is a search bar at the top of the user table where you can type any name or ID to filter the table live. You can also filter users by role.
+- Edit User and Status Toggle: Admins can update any user's profile details or change their status from registered to active or suspended.
+- Role Assignment: Admins can change a user's role between Super Admin, Teacher, Student, or Parent.
+- Direct Permissions: Admins can give special extra permissions directly to one specific user if needed.
+- Delete User Modal: Admins can delete a user account from the system with a confirmation prompt. The backend automatically cleans up all associated roles and permissions in the database.
+
+3. TEACHER PORTAL
+- Teacher Dashboard Screen: When a teacher logs in, they see their student roster with student names, grades, attendance percentages, and overall GPA.
+- Student Details View: Teachers can click on any student from their class list to see their detailed academic performance.
+- Teacher Notes and Feedback Editor: Teachers have a text box where they can type custom progress notes, feedback, and comments for any student and save them.
+
+4. STUDENT PORTAL
+- Student Academic Portal Screen: When a student logs in, they see their personal profile with their name, roll number, and grade level.
+- GPA and Attendance Cards: Shows the student's cumulative GPA score and total attendance percentage.
+- Enrolled Courses Table: Lists all courses the student is taking, showing course code, title, letter grade, and score percentage.
+- Teacher Remarks Panel: Shows official guidance notes and feedback given by their teachers.
+
+5. PARENT PORTAL
+- Parent Guardian Portal Screen: When a parent logs in, they see their linked child's profile details, student ID, and grade level.
+- Child Academic Summary: Displays the child's overall term GPA and attendance percentage.
+- Subject Performance Table: Shows all subjects their child is taking with marks and performance ratings like Excellent or Outstanding.
+- Teacher Messages Panel: Displays direct messages and progress reports sent by the child's teachers.
+
+6. BACKEND DATABASE AND SERVER UTILITIES
+- SQLite Database: All data like users, passwords, roles, and permissions are saved inside the academy.db file using SQLite.
+- Auto Setup and Self Seeding: When you launch the server binary for the first time on a fresh machine, it automatically creates all database tables and creates the main superadmin account with username superadmin and password adminpass.
+- Permission Checking Engine: Every time an API request comes in, the backend checks if the user has the required permission key before allowing access. Super admin bypasses all permission restrictions.
+- Network and Hosting: The backend server runs on port 8085. It supports environment variables like ACADEMY_HOST=0.0.0.0 so it can be hosted on a cloud server 24/7.
