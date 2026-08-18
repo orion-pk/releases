@@ -1,21 +1,21 @@
 {
-  "version": "1.1.0-beta.6",
-  "pub_date": "2026-08-13T20:10:00Z",
-  "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.6/medicare-android-1.1.0-beta.6.apk",
-  "sha256": "dbe27dcf7b759a2f1aa66a4a05516359e2845f6fe369c7d8ec640e2b71b24c65",
-  "notes": "Medicare Android Release 1.1.0-beta.6",
-  "windows": {
-    "version": "1.1.0-beta.2",
-    "pub_date": "2026-08-11T20:10:14Z",
-    "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.2/medicare-windows-setup-1.1.0-beta.2.exe",
-    "sha256": "93fad3d22a71a62bc5d174172fad09e1fa2ef14f3bb64b2cbba2275958a2db43",
-    "notes": "Medicare Release 1.1.0-beta.2"
-  },
-  "android": {
-    "version": "1.1.0-beta.6",
-    "pub_date": "2026-08-13T20:10:00Z",
-    "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.6/medicare-android-1.1.0-beta.6.apk",
-    "sha256": "dbe27dcf7b759a2f1aa66a4a05516359e2845f6fe369c7d8ec640e2b71b24c65",
-    "notes": "Medicare Android Release 1.1.0-beta.6"
-  }
+    "version":  "1.1.0-beta.28",
+    "pub_date":  "2026-08-18T09:21:17Z",
+    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.28/medicare-windows-setup-1.1.0-beta.28.exe",
+    "sha256":  "092eb38f7c5a65a25c127379b567ec5508a27f21ce33f8d7b08658d3577fff2d",
+    "notes":  "Medicare Release 1.1.0-beta.28 for Windows and Android (Immediate Startup Update Dialog \u0026 Background DownloadManager)",
+    "windows":  {
+                    "version":  "1.1.0-beta.28",
+                    "pub_date":  "2026-08-18T09:21:17Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.28/medicare-windows-setup-1.1.0-beta.28.exe",
+                    "sha256":  "092eb38f7c5a65a25c127379b567ec5508a27f21ce33f8d7b08658d3577fff2d",
+                    "notes":  "Medicare Windows Release 1.1.0-beta.28"
+                },
+    "android":  {
+                    "version":  "1.1.0-beta.28",
+                    "pub_date":  "2026-08-18T09:21:17Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.28/medicare-android-1.1.0-beta.28.apk",
+                    "sha256":  "2a84d4eaf6a9c403e286d7ffc871c3d745f46b7a21283a99148670e13a84f23a",
+                    "notes":  "Medicare Android Release 1.1.0-beta.28 with Background DownloadManager"
+                }
 }
