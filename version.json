@@ -1,21 +1,21 @@
 {
-    "version": "1.1.0-beta.10",
-    "pub_date": "2026-08-24T11:40:00Z",
-    "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.10/medicare-windows-setup-1.1.0-beta.10.exe",
-    "sha256": "66174c7609cce25177d28092219bba7c82a6781fe093471f00fe749a8a05951b",
-    "notes": "Medicare Release 1.1.0-beta.10",
+    "version": "1.1.0-beta.11",
+    "pub_date": "2026-08-24T13:33:00Z",
+    "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.11/medicare-windows-setup-1.1.0-beta.11.exe",
+    "sha256": "fb86e318df983b680347f4fcd01cf666c43b98e83d053991e1720385455458fc",
+    "notes": "Medicare Release 1.1.0-beta.11",
     "windows": {
-        "version": "1.1.0-beta.10",
-        "pub_date": "2026-08-24T11:40:00Z",
-        "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.10/medicare-windows-setup-1.1.0-beta.10.exe",
-        "sha256": "66174c7609cce25177d28092219bba7c82a6781fe093471f00fe749a8a05951b",
-        "notes": "Medicare Windows Release 1.1.0-beta.10"
+        "version": "1.1.0-beta.11",
+        "pub_date": "2026-08-24T13:33:00Z",
+        "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.11/medicare-windows-setup-1.1.0-beta.11.exe",
+        "sha256": "fb86e318df983b680347f4fcd01cf666c43b98e83d053991e1720385455458fc",
+        "notes": "Medicare Windows Release 1.1.0-beta.11"
     },
     "android": {
-        "version": "1.1.0-beta.10",
-        "pub_date": "2026-08-24T11:40:00Z",
-        "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.10/medicare-android-1.1.0-beta.10.apk",
-        "sha256": "e177b230b1d00a811958e146e22a0c40dd9b16195f347591735818096e0b1fe9",
-        "notes": "Medicare Android Release 1.1.0-beta.10"
+        "version": "1.1.0-beta.11",
+        "pub_date": "2026-08-24T13:33:00Z",
+        "url": "https://github.com/orion-pk/releases/releases/download/medicare-v1.1.0-beta.11/medicare-android-1.1.0-beta.11.apk",
+        "sha256": "3aadd4a7ed95ad8cf1e074b440ef6494b36fdd02b1a2f7fc3f914437ab673150",
+        "notes": "Medicare Android Release 1.1.0-beta.11"
     }
 }
