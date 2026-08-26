@@ -1,21 +1,21 @@
 ﻿{
     "version":  "0.0.1",
-    "pub_date":  "2026-08-25T18:32:51Z",
+    "pub_date":  "2026-08-26T03:19:35Z",
     "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.1/medicare-windows-setup-0.0.1.exe",
-    "sha256":  "db7f20a70ee5af7df51ce0528f6666a887c831cfa1d8ef2d253a069ba352f840",
+    "sha256":  "f1070fd933b60c76f78cb8b601fc10f8233c69d1079d52607b4c4cd92fbb584c",
     "notes":  "Medicare Release 0.0.1",
     "windows":  {
                     "version":  "0.0.1",
-                    "pub_date":  "2026-08-25T18:32:51Z",
+                    "pub_date":  "2026-08-26T03:19:35Z",
                     "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.1/medicare-windows-setup-0.0.1.exe",
-                    "sha256":  "db7f20a70ee5af7df51ce0528f6666a887c831cfa1d8ef2d253a069ba352f840",
+                    "sha256":  "f1070fd933b60c76f78cb8b601fc10f8233c69d1079d52607b4c4cd92fbb584c",
                     "notes":  "Medicare Windows Release 0.0.1"
                 },
     "android":  {
                     "version":  "0.0.1",
-                    "pub_date":  "2026-08-25T18:32:51Z",
+                    "pub_date":  "2026-08-26T03:19:35Z",
                     "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.1/medicare-android-0.0.1.apk",
-                    "sha256":  "fbce03f47cc4d0e375e4d9fb78915c2e71049d03562915c348185ea6ce6261a0",
+                    "sha256":  "d342b534fb84758d5de29df9d9f0546df081f5f98d92e18f38501852bc38b684",
                     "notes":  "Medicare Android Release 0.0.1"
                 }
 }
