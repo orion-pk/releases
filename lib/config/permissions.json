@@ -1,0 +1,245 @@
+{
+  "version": "1.0.0",
+  "name": "Academia RBAC Permissions Manifest",
+  "description": "Static declarative permissions catalog and role mappings single source of truth",
+  "modules": [
+    {
+      "id": "students",
+      "name": "Student Module",
+      "sub_module": "students",
+      "description": "Student profile, enrollment, and grade management",
+      "permissions": [
+        {
+          "id": 1,
+          "key": "students:view",
+          "action": "view",
+          "label": "View Students",
+          "description": "View student profiles, rosters & report cards"
+        },
+        {
+          "id": 2,
+          "key": "students:create",
+          "action": "create",
+          "label": "Create Student",
+          "description": "Enroll / Register new students"
+        },
+        {
+          "id": 3,
+          "key": "students:edit",
+          "action": "edit",
+          "label": "Edit Student",
+          "description": "Modify student profile, grades & attendance"
+        },
+        {
+          "id": 4,
+          "key": "students:delete",
+          "action": "delete",
+          "label": "Delete Student",
+          "description": "Remove student records"
+        }
+      ]
+    },
+    {
+      "id": "teachers",
+      "name": "Teacher Module",
+      "sub_module": "teachers",
+      "description": "Teacher directory, qualifications, and class schedules",
+      "permissions": [
+        {
+          "id": 5,
+          "key": "teachers:view",
+          "action": "view",
+          "label": "View Teachers",
+          "description": "View teacher directory & schedules"
+        },
+        {
+          "id": 6,
+          "key": "teachers:create",
+          "action": "create",
+          "label": "Create Teacher",
+          "description": "Add new teacher profiles & subject assignments"
+        },
+        {
+          "id": 7,
+          "key": "teachers:edit",
+          "action": "edit",
+          "label": "Edit Teacher",
+          "description": "Update teacher qualifications & assigned classes"
+        },
+        {
+          "id": 8,
+          "key": "teachers:delete",
+          "action": "delete",
+          "label": "Delete Teacher",
+          "description": "Remove teacher profiles"
+        }
+      ]
+    },
+    {
+      "id": "classes",
+      "name": "Class Module",
+      "sub_module": "classes",
+      "description": "Class listings, section rosters, and room schedules",
+      "permissions": [
+        {
+          "id": 9,
+          "key": "classes:view",
+          "action": "view",
+          "label": "View Classes",
+          "description": "View class listings, timetables & section rosters"
+        },
+        {
+          "id": 10,
+          "key": "classes:create",
+          "action": "create",
+          "label": "Create Class",
+          "description": "Create new classes, subjects & course sections"
+        },
+        {
+          "id": 11,
+          "key": "classes:edit",
+          "action": "edit",
+          "label": "Edit Class",
+          "description": "Edit class details & assigned teachers"
+        },
+        {
+          "id": 12,
+          "key": "classes:delete",
+          "action": "delete",
+          "label": "Delete Class",
+          "description": "Delete classes or sections"
+        }
+      ]
+    },
+    {
+      "id": "users",
+      "name": "User Governance",
+      "sub_module": "users",
+      "description": "User account management, security roles, and permissions",
+      "permissions": [
+        {
+          "id": 13,
+          "key": "users:view",
+          "action": "view",
+          "label": "View Users",
+          "description": "View user directory & role assignments"
+        },
+        {
+          "id": 14,
+          "key": "users:create",
+          "action": "create",
+          "label": "Create User",
+          "description": "Register new user accounts"
+        },
+        {
+          "id": 15,
+          "key": "users:edit",
+          "action": "edit",
+          "label": "Edit User",
+          "description": "Modify user details, email & role assignments"
+        },
+        {
+          "id": 16,
+          "key": "users:delete",
+          "action": "delete",
+          "label": "Delete User",
+          "description": "Delete user accounts permanently"
+        }
+      ]
+    },
+    {
+      "id": "lectures",
+      "name": "Lecture Module",
+      "sub_module": "lectures",
+      "description": "Curriculum, topic notes, and lecture rosters",
+      "permissions": [
+        {
+          "id": 17,
+          "key": "lectures:view",
+          "action": "view",
+          "label": "View Lectures",
+          "description": "View lecture listings and rosters"
+        },
+        {
+          "id": 18,
+          "key": "lectures:create",
+          "action": "create",
+          "label": "Create Lecture",
+          "description": "Create and schedule lectures"
+        },
+        {
+          "id": 19,
+          "key": "lectures:edit",
+          "action": "edit",
+          "label": "Edit Lecture",
+          "description": "Modify lecture details and assigned students"
+        },
+        {
+          "id": 20,
+          "key": "lectures:delete",
+          "action": "delete",
+          "label": "Delete Lecture",
+          "description": "Remove lectures"
+        }
+      ]
+    },
+    {
+      "id": "ocr",
+      "name": "Document & OCR Module",
+      "sub_module": "ocr",
+      "description": "Document verification and academic credentials",
+      "permissions": [
+        {
+          "id": 21,
+          "key": "ocr:view",
+          "action": "view",
+          "label": "View Documents",
+          "description": "View uploaded degrees, certificates, and CVs"
+        },
+        {
+          "id": 22,
+          "key": "ocr:scan",
+          "action": "create",
+          "label": "Scan Document",
+          "description": "Scan and extract data from degree certificates"
+        }
+      ]
+    }
+  ],
+  "defaultRoleTemplates": {
+    "Super Admin": {
+      "roleId": 1,
+      "allPermissions": true
+    },
+    "Teacher": {
+      "roleId": 2,
+      "permissions": [
+        "students:view",
+        "students:create",
+        "students:edit",
+        "teachers:view",
+        "classes:view",
+        "lectures:view",
+        "lectures:create",
+        "lectures:edit",
+        "ocr:view"
+      ]
+    },
+    "Student": {
+      "roleId": 3,
+      "permissions": [
+        "students:view",
+        "classes:view",
+        "lectures:view"
+      ]
+    },
+    "Parent": {
+      "roleId": 4,
+      "permissions": [
+        "students:view",
+        "classes:view",
+        "lectures:view"
+      ]
+    }
+  }
+}

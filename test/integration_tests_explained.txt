@@ -1,0 +1,54 @@
+ACADEMY PLATFORM INTEGRATION TESTS GUIDE
+
+OVERVIEW
+This file explains all 14 integration tests we wrote in Dart. Each test checks that the backend database, security, and frontend data flows work properly together. You can run all these tests using the single command: dart test test/integration/all_integration_test.dart
+
+1. USER AND ACCESS CONTROL TESTS (user_access_control_test.dart)
+
+- Test 1.1 (User Registration, Update, and Delete):
+  What it does: Creates a new user account in the database with an email and phone number, checks that it saved properly, updates the user's email and status to active, and then deletes the user. It verifies that deleting the user removes them completely from the database without errors.
+
+- Test 1.2 (Dynamic Role Assignment):
+  What it does: Registers a new user, assigns them the Teacher role, and verifies that the system recognizes them as a Teacher. Then it assigns them the Parent role as well and checks that both roles are active.
+
+- Test 1.3 (Direct Custom Permissions):
+  What it does: Creates a normal user who does not have user management permissions. Then it grants them a specific direct permission key (manage:users) and verifies that the permission engine now allows them to manage users.
+
+- Test 1.4 (Login and JWT Token Lifecycle):
+  What it does: Logs in as superadmin using the password, verifies that the server returns a valid JWT token string, decodes the token, and checks that the decoded token correctly contains the user's identity and Super Admin role.
+
+2. STUDENT MODULE TESTS (student_module_test.dart)
+
+- Test 2.1 (Student Profile Management):
+  What it does: Registers a student user, saves their roll number, grade level, GPA, and attendance percentage in the student profile table, and verifies that querying the profile returns the exact saved data.
+
+- Test 2.2 (Attendance Tracking):
+  What it does: Creates a student record with an initial attendance percentage of 92%, updates the attendance percentage to 96%, and checks that the database reflects the updated percentage correctly.
+
+- Test 2.3 (Fee and Billing Management):
+  What it does: Creates a fee record of 1200 dollars marked as Pending for a student. Then it updates the fee status to Paid and verifies that the record changes to Paid in the database.
+
+- Test 2.4 (Grades and Report Card Permissions):
+  What it does: Checks that a fresh user without the student role cannot read student academic data. Then it assigns them the Student role and verifies that they are granted access to read their own academic records.
+
+3. TEACHER MODULE TESTS (teacher_module_test.dart)
+
+- Test 3.1 (Teacher Profile and Role Assignment):
+  What it does: Registers a new user, assigns them the Teacher role, saves their subject specialty (Mathematics & Logic) and salary in the teacher profile table, and verifies the details are saved correctly.
+
+- Test 3.2 (Teacher Permission Gates):
+  What it does: Assigns the Teacher role to a user and checks that they get read and update permissions for student data, but are blocked from accessing admin user management features.
+
+- Test 3.3 (Teacher Student Feedback Notes):
+  What it does: Simulates a teacher writing a custom progress note for a student ("Excellent performance in calculus problem set"), saves it to the database, and verifies the note is correctly retrieved.
+
+4. DATABASE AND SYSTEM ADMIN TESTS (system_admin_test.dart)
+
+- Test 4.1 (Super Admin Permission Override):
+  What it does: Queries the superadmin account and checks that superadmin bypasses all permission checks, returning true even for random or unassigned permission keys.
+
+- Test 4.2 (Atomic Database Transactions):
+  What it does: Tests SQLite transaction safety. It starts a transaction, inserts two users, and commits them, verifying both are saved. Then it starts another transaction, inserts a user, and rolls it back, verifying that the rolled-back user was not saved to disk.
+
+- Test 4.3 (Login Rate Limiting and IP Throttling):
+  What it does: Simulates a brute-force attack from an IP address. It records 5 consecutive failed login attempts, verifies that the system locks out the IP, and then resets the throttle and verifies access is restored.

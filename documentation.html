@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy Platform Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #f1f5f9;
+      --bg-hover: #e2e8f0;
+      --bg-card: #ffffff;
+      --bg-code: #0f172a;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-secondary: #334155;
+      --text-code: #e2e8f0;
+      --border-color: #e2e8f0;
+      --border-accent: #cbd5e1;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --badge-bg: #e2e8f0;
+      --badge-text: #334155;
+      
+      --badge-get-bg: #dbeafe;
+      --badge-get-text: #1e40af;
+      --badge-post-bg: #dcfce7;
+      --badge-post-text: #166534;
+      --badge-put-bg: #fef3c7;
+      --badge-put-text: #92400e;
+      --badge-delete-bg: #fee2e2;
+      --badge-delete-text: #991b1b;
+      
+      --radius: 8px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 60px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-main);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brand-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border-accent);
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: var(--bg-sidebar);
+      padding: 3px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .nav-tab {
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .nav-tab.active {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .search-wrapper {
+      position: relative;
+      width: 280px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 36px;
+      background: var(--bg-sidebar);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 0 3rem 0 0.85rem;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      background: var(--bg-surface);
+    }
+
+    .search-kbd {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 2px 5px;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .search-results {
+      position: absolute;
+      top: 42px;
+      left: 0;
+      right: 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      max-height: 320px;
+      overflow-y: auto;
+      display: none;
+      z-index: 200;
+    }
+
+    .search-results.active {
+      display: block;
+    }
+
+    .search-item {
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .search-item:last-child {
+      border-bottom: none;
+    }
+
+    .search-item:hover {
+      background: var(--bg-hover);
+    }
+
+    .search-item-title {
+      font-weight: 600;
+    }
+
+    .search-item-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .mobile-menu-btn {
+      background: var(--bg-sidebar);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .mobile-menu-btn:hover {
+      background: var(--bg-hover);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* VIEWS CONTAINER */
+    .view-section {
+      display: none;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    /* LANDING VIEW */
+    .hero {
+      padding: 4rem 2rem 3rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-hover);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .card-text {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-list {
+      margin-top: 0.75rem;
+      padding-left: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .card-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* DOCS VIEW LAYOUT */
+    .docs-layout {
+      display: flex;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar {
+      width: 260px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-color);
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      padding: 0 0.5rem;
+    }
+
+    .sidebar-link {
+      display: block;
+      padding: 7px 10px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: all 0.15s ease;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-link:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .sidebar-link.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .docs-content {
+      flex: 1;
+      padding: 2.5rem 3rem 5rem 3rem;
+      max-width: 960px;
+    }
+
+    .doc-section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 80px;
+    }
+
+    .doc-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .doc-subtitle {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 1.75rem 0 0.75rem 0;
+      color: var(--text-main);
+    }
+
+    .doc-text {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      background: var(--bg-code);
+      color: var(--text-code);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .code-block code {
+      font-family: inherit;
+      white-space: pre;
+    }
+
+    .inline-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.825rem;
+      background: var(--bg-sidebar);
+      color: var(--text-main);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* TABLES */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      margin: 1rem 0;
+      background: var(--bg-surface);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+      min-width: 550px;
+    }
+
+    th {
+      background: var(--bg-sidebar);
+      padding: 10px 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: var(--bg-sidebar);
+    }
+
+    /* BADGES */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+    }
+
+    .badge-get { background: var(--badge-get-bg); color: var(--badge-get-text); }
+    .badge-post { background: var(--badge-post-bg); color: var(--badge-post-text); }
+    .badge-put { background: var(--badge-put-bg); color: var(--badge-put-text); }
+    .badge-delete { background: var(--badge-delete-bg); color: var(--badge-delete-text); }
+
+    .badge-role {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-transform: none;
+    }
+
+    .badge-yes { background: var(--badge-post-bg); color: var(--badge-post-text); }
+    .badge-no { background: var(--badge-delete-bg); color: var(--badge-delete-text); }
+    .badge-read { background: var(--badge-get-bg); color: var(--badge-get-text); }
+
+    /* RESPONSIVE MEDIA QUERIES */
+    @media (max-width: 1024px) {
+      .sidebar {
+        width: 220px;
+      }
+      .docs-content {
+        padding: 2rem 1.5rem 4rem 1.5rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0.5rem 1rem;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .header-left {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .header-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .search-wrapper {
+        flex: 1;
+        width: auto;
+      }
+
+      .search-kbd {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: inline-block;
+      }
+
+      .docs-layout {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 110px;
+        left: -100%;
+        width: 260px;
+        height: calc(100vh - 110px);
+        z-index: 150;
+        box-shadow: var(--shadow-md);
+        transition: left 0.25s ease;
+      }
+
+      .sidebar.mobile-open {
+        left: 0;
+      }
+
+      .hero {
+        padding: 2.5rem 1rem 2rem 1rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .container {
+        padding: 0 1rem 3rem 1rem;
+      }
+
+      .grid-4, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .docs-content {
+        padding: 1.5rem 1rem 3rem 1rem;
+      }
+
+      .doc-title {
+        font-size: 1.4rem;
+      }
+
+      .doc-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .doc-section {
+        scroll-margin-top: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <a class="brand" onclick="switchView('landing')">
+        <span>ACADEMY</span>
+      </a>
+      <nav class="nav-tabs">
+        <button class="nav-tab active" id="tab-landing" onclick="switchView('landing')">Overview</button>
+        <button class="nav-tab" id="tab-docs" onclick="switchView('docs')">Documentation</button>
+      </nav>
+    </div>
+    
+    <div class="header-right">
+      <div class="search-wrapper">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search docs..." onkeyup="handleSearch(event)">
+        <span class="search-kbd">Ctrl+K</span>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileSidebar()">Menu</button>
+    </div>
+  </header>
+
+  <!-- LANDING PAGE VIEW -->
+  <main id="view-landing" class="view-section active">
+    <section class="hero">
+      <h1 class="hero-title">Academy Platform Documentation</h1>
+      <p class="hero-subtitle">
+        Welcome to the Academy Management Portal guide. Discover feature workflows, user role permissions, and navigation instructions for Super Admins, Teachers, Students, and Parents.
+      </p>
+      <div class="card" style="border-left: 4px solid var(--primary); background: var(--primary-light); margin: 1.5rem auto 0 auto; max-width: 800px; text-align: left; padding: 1.1rem 1.25rem; box-shadow: none;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.35rem; font-size: 0.95rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          Platform Capability Notice
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+          The Academy platform delivers core <strong>Authentication (JWT), Role-Based Governance (RBAC), and System User & Permission Management</strong> for system administrators.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="switchView('docs')">Explore Documentation</button>
+        <button class="btn btn-secondary" onclick="navigateToSection('roles-matrix')">Roles & Permissions</button>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Quick Navigation</h2>
+      <div class="grid-4" style="margin-bottom: 2rem;">
+        <div class="card" onclick="navigateToSection('roles-matrix')" style="cursor: pointer;">
+          <h3 class="card-title">Roles & Permissions</h3>
+          <p class="card-text">Permission matrix across Super Admin, Teacher, Student, and Parent accounts.</p>
+        </div>
+        <div class="card" onclick="navigateToSection('feature-modules')" style="cursor: pointer;">
+          <h3 class="card-title">Platform Modules</h3>
+          <p class="card-text">Overview of Student, Teacher, Class, Governance, Lecture, and OCR modules.</p>
+        </div>
+        <div class="card" onclick="navigateToSection('user-activation')" style="cursor: pointer;">
+          <h3 class="card-title">Account Activation</h3>
+          <p class="card-text">Guide on invitation emails, setting passwords, and activating user accounts.</p>
+        </div>
+        <div class="card" onclick="navigateToSection('ocr-scanner')" style="cursor: pointer;">
+          <h3 class="card-title">AI Document Scanner</h3>
+          <p class="card-text">13-field degree data extraction and interactive dual-pane document zoom.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">User Roles Overview</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="card-title">Super Admin</h3>
+          <p class="card-text">Global unrestricted system administration and governance.</p>
+          <ul class="card-list">
+            <li>User management, role assignment, and interactive Permissions Matrix control.</li>
+            <li>Full oversight of student records, faculty rosters, lectures, and document archives.</li>
+            <li>System security configuration, audit log tracking, and database exports.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Teachers</h3>
+          <p class="card-text">Academic and curriculum management for assigned classes and courses.</p>
+          <ul class="card-list">
+            <li>Manage student grades, attendance records, and student feedback notes.</li>
+            <li>Create, schedule, and manage lectures and topic outlines.</li>
+            <li>Upload and verify educational credentials via AI document scanning.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Students</h3>
+          <p class="card-text">Self-service academic portal for enrolled courses and class schedules.</p>
+          <ul class="card-list">
+            <li>View personalized attendance percentages and fee payment status.</li>
+            <li>Access assigned lecture schedules, syllabi notes, and course materials.</li>
+            <li>View published exam results and term report cards.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Parents</h3>
+          <p class="card-text">Dedicated monitoring portal scoped exclusively to linked children.</p>
+          <ul class="card-list">
+            <li>Monitor child attendance percentage, daily presence, and class schedules.</li>
+            <li>Track fee status, upcoming billing records, and term report cards.</li>
+            <li>Review scheduled lectures and teacher performance feedback notes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- DETAILED DOCUMENTATION VIEW -->
+  <main id="view-docs" class="view-section">
+    <div class="docs-layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="docsSidebar">
+        <div class="sidebar-group">
+          <div class="sidebar-label">Security & Access</div>
+          <a href="#roles-matrix" class="sidebar-link active" onclick="onSidebarClick(this)">Roles & Permissions</a>
+          <a href="#feature-modules" class="sidebar-link" onclick="onSidebarClick(this)">Platform Modules</a>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-label">Core Workflows</div>
+          <a href="#user-activation" class="sidebar-link" onclick="onSidebarClick(this)">Account Activation</a>
+          <a href="#ocr-scanner" class="sidebar-link" onclick="onSidebarClick(this)">Document & OCR Scanner</a>
+          <a href="#lecture-management" class="sidebar-link" onclick="onSidebarClick(this)">Lecture Management</a>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+      <div class="docs-content">
+
+        <!-- ROLES AND PERMISSIONS MATRIX -->
+        <section id="roles-matrix" class="doc-section">
+          <h1 class="doc-title">Roles and Permissions Matrix</h1>
+          <p class="doc-text">
+            Access control is strictly enforced per role. Below is the operational privilege breakdown for each user group across all platform modules.
+          </p>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Module / Operation</th>
+                  <th>Super Admin</th>
+                  <th>Teacher</th>
+                  <th>Student</th>
+                  <th>Parent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>User Governance & Permissions Matrix</strong></td>
+                  <td><span class="badge badge-yes">Full Control</span></td>
+                  <td><span class="badge badge-no">No Access</span></td>
+                  <td><span class="badge badge-no">No Access</span></td>
+                  <td><span class="badge badge-no">No Access</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Account Activation Invitations</strong></td>
+                  <td><span class="badge badge-yes">Send & Manage</span></td>
+                  <td><span class="badge badge-read">Self-Activate</span></td>
+                  <td><span class="badge badge-read">Self-Activate</span></td>
+                  <td><span class="badge badge-read">Self-Activate</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Student Profiles & Rosters</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-yes">View / Edit</span></td>
+                  <td><span class="badge badge-read">View (Self)</span></td>
+                  <td><span class="badge badge-read">View (Child)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Attendance Records</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-yes">Mark / Edit</span></td>
+                  <td><span class="badge badge-read">View (Self)</span></td>
+                  <td><span class="badge badge-read">View (Child)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Grades & Report Cards</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-yes">Enter / Edit</span></td>
+                  <td><span class="badge badge-read">View (Self)</span></td>
+                  <td><span class="badge badge-read">View (Child)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Lecture & Topic Management</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-yes">Create / Manage</span></td>
+                  <td><span class="badge badge-read">View (Enrolled)</span></td>
+                  <td><span class="badge badge-read">View (Child)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Document & Degree OCR Scanning</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-yes">Upload / Scan</span></td>
+                  <td><span class="badge badge-read">View (Self)</span></td>
+                  <td><span class="badge badge-no">No Access</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Teacher Profiles & Directory</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-read">View Directory</span></td>
+                  <td><span class="badge badge-read">View Teachers</span></td>
+                  <td><span class="badge badge-read">View Teachers</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Class & Timetable Management</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-yes">View / Assign</span></td>
+                  <td><span class="badge badge-read">View Timetable</span></td>
+                  <td><span class="badge badge-read">View Timetable</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Fee Status & Payments</strong></td>
+                  <td><span class="badge badge-yes">Full Access</span></td>
+                  <td><span class="badge badge-no">No Access</span></td>
+                  <td><span class="badge badge-read">View (Self)</span></td>
+                  <td><span class="badge badge-read">View (Child)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- FEATURE MODULES LIST -->
+        <section id="feature-modules" class="doc-section">
+          <h1 class="doc-title">Platform Feature Modules</h1>
+          <p class="doc-text">
+            Academy organizes system functionality into 6 core modules, each with distinct user workflows and access boundaries.
+          </p>
+
+          <h2 class="doc-subtitle">1. Student Module</h2>
+          <p class="doc-text">Student information tracking, attendance recording, and academic evaluation.</p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Profiles:</strong> Student identity, enrollment dates, and parent contacts.</li>
+            <li><strong>Attendance:</strong> Daily presence logging and automatic attendance percentages.</li>
+            <li><strong>Grades & Cards:</strong> Subject assessment marks and term report cards.</li>
+          </ul>
+
+          <h2 class="doc-subtitle">2. Teacher Module</h2>
+          <p class="doc-text">Faculty directory, subject assignments, and teacher feedback notes.</p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Faculty Profiles:</strong> Academic qualifications, subject specializations, and CNIC records.</li>
+            <li><strong>Teaching Rosters:</strong> Assigned class sections and course allocations.</li>
+          </ul>
+
+          <h2 class="doc-subtitle">3. Class & Schedule Module</h2>
+          <p class="doc-text">Classroom scheduling, section rosters, and subject timetables.</p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Class Rosters:</strong> Grade levels, section capacities, and student rosters.</li>
+            <li><strong>Timetables:</strong> Period allocations and room availability schedules.</li>
+          </ul>
+
+          <h2 class="doc-subtitle">4. User Governance & Permissions Module</h2>
+          <p class="doc-text">Administrative account lifecycle and Role Permissions Matrix controls.</p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Account Creation:</strong> Registering staff with assigned roles and activation emails.</li>
+            <li><strong>Permissions Matrix:</strong> One-click toggling of View, Add, Edit, Delete permissions per role.</li>
+          </ul>
+
+          <h2 class="doc-subtitle">5. Lecture & Curriculum Module</h2>
+          <p class="doc-text">Curriculum delivery, topic scheduling, and student roster enrollments.</p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Lecture Scheduling:</strong> Setting lecture titles, subject topics, and descriptions.</li>
+            <li><strong>Student Rosters:</strong> Enrolling specific students or entire class sections into lectures.</li>
+          </ul>
+
+          <h2 class="doc-subtitle">6. Document Verification & OCR Module</h2>
+          <p class="doc-text">AI-assisted document scanning, dual-pane zoom preview, and academic data extraction.</p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Document Uploads:</strong> Uploading degrees, Matric/Inter certificates, and CV files.</li>
+            <li><strong>13-Field Extraction:</strong> Automatic capture of student/father name, roll number, total/obtained marks, grade, board, and year.</li>
+          </ul>
+        </section>
+
+        <!-- USER ACTIVATION WORKFLOW -->
+        <section id="user-activation" class="doc-section">
+          <h1 class="doc-title">User Account Activation Workflow</h1>
+          <p class="doc-text">
+            Secure self-service onboarding allows newly registered staff and users to set their own passwords.
+          </p>
+          <div class="grid-2" style="margin-bottom: 1.5rem;">
+            <div class="card">
+              <h3 class="card-title">1. Administrator Registration</h3>
+              <p class="card-text">
+                The Super Admin registers a user with an email and role. The account status is initially set to <code>Pending Activation</code>.
+              </p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">2. Secure Activation Link</h3>
+              <p class="card-text">
+                An invitation email containing a secure, time-limited activation token link is sent directly to the user's inbox.
+              </p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">3. Password Setup</h3>
+              <p class="card-text">
+                The user opens the activation link, enters their new password, and confirms their personal profile.
+              </p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">4. Automatic Login</h3>
+              <p class="card-text">
+                Upon activation, the status updates to <code>Registered</code>, and the user is instantly logged into their portal.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI DOCUMENT & OCR SCANNER -->
+        <section id="ocr-scanner" class="doc-section">
+          <h1 class="doc-title">AI Document & OCR Intelligence Scanner</h1>
+          <p class="doc-text">
+            Automates the verification of academic degrees and certificates using OCR extraction and live dual-pane inspection.
+          </p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Dual-Pane Interactive Viewer:</strong> Inspect high-resolution document scans side-by-side with extracted data, featuring real-time zoom and pan controls.</li>
+            <li><strong>13 Captured Academic Fields:</strong> Automatically extracts Student Name, Father Name, Roll Number, Registration Number, Total Marks, Obtained Marks, Grade, Passing Year, Board/BISE Name, Examination Type, Group/Discipline, Institution Name, and CNIC.</li>
+            <li><strong>In-Place Review & Save:</strong> Users can edit any field directly in the review pane before committing data to the permanent profile repository.</li>
+          </ul>
+        </section>
+
+        <!-- LECTURE MANAGEMENT -->
+        <section id="lecture-management" class="doc-section">
+          <h1 class="doc-title">Lecture & Curriculum Management</h1>
+          <p class="doc-text">
+            Enables faculty to schedule topics, publish lecture outlines, and manage attending student rosters.
+          </p>
+          <ul class="card-list" style="margin-bottom: 1.5rem;">
+            <li><strong>For Teachers:</strong> Schedule new lectures, define subjects and syllabus topics, and attach participating students.</li>
+            <li><strong>For Students:</strong> View upcoming lecture timetables, review lecture outlines, and track assigned courses.</li>
+            <li><strong>For Parents:</strong> Monitor scheduled lectures and curriculum progression for linked children.</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+
+
+
+
+      </div>
+    </div>
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // VIEW SWITCHER
+    function switchView(viewName) {
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+
+      if (viewName === 'landing') {
+        document.getElementById('view-landing').classList.add('active');
+        document.getElementById('tab-landing').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        document.getElementById('view-docs').classList.add('active');
+        document.getElementById('tab-docs').classList.add('active');
+      }
+      closeMobileSidebar();
+    }
+
+    function navigateToSection(sectionId) {
+      switchView('docs');
+      setTimeout(() => {
+        const elem = document.getElementById(sectionId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+          updateSidebarActive(sectionId);
+        }
+      }, 50);
+    }
+
+    function onSidebarClick(linkEl) {
+      const targetId = linkEl.getAttribute('href').substring(1);
+      updateSidebarActive(targetId);
+      closeMobileSidebar();
+    }
+
+    function updateSidebarActive(sectionId) {
+      document.querySelectorAll('.sidebar-link').forEach(el => {
+        el.classList.remove('active');
+        if (el.getAttribute('href') === '#' + sectionId) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    // MOBILE SIDEBAR TOGGLE
+    function toggleMobileSidebar() {
+      const sidebar = document.getElementById('docsSidebar');
+      sidebar.classList.toggle('mobile-open');
+    }
+
+    function closeMobileSidebar() {
+      const sidebar = document.getElementById('docsSidebar');
+      if (sidebar) {
+        sidebar.classList.remove('mobile-open');
+      }
+    }
+
+    // SCROLLSPY OBSERVER FOR SIDEBAR HIGHLIGHTING ON SCROLL
+    function initScrollspy() {
+      const sections = document.querySelectorAll('.doc-section');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '-15% 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            updateSidebarActive(id);
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    }
+
+
+
+    // SEARCH INDEX DATA
+    const searchData = [
+      { title: "Roles & Permissions Matrix", desc: "Privileges for Admin, Teacher, Student, Parent", sectionId: "roles-matrix" },
+      { title: "Platform Feature Modules", desc: "Student, Teacher, Class, Governance, Lecture, OCR", sectionId: "feature-modules" },
+      { title: "User Account Activation", desc: "Invitation emails, password setup, onboarding", sectionId: "user-activation" },
+      { title: "AI Document & OCR Scanner", desc: "13-field degree extraction, dual-pane zoom preview", sectionId: "ocr-scanner" },
+      { title: "Lecture & Curriculum Management", desc: "Topic scheduling, student rosters, syllabi", sectionId: "lecture-management" }
+    ];
+
+    function handleSearch(event) {
+      const query = event.target.value.toLowerCase().trim();
+      const resultsContainer = document.getElementById('searchResults');
+
+      if (!query) {
+        resultsContainer.innerHTML = '';
+        resultsContainer.classList.remove('active');
+        return;
+      }
+
+      const filtered = searchData.filter(item => 
+        item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query)
+      );
+
+      if (filtered.length === 0) {
+        resultsContainer.innerHTML = '<div class="search-item"><span class="search-item-title">No results found</span></div>';
+      } else {
+        resultsContainer.innerHTML = filtered.map(item => `
+          <div class="search-item" onclick="selectSearchResult('${item.sectionId}')">
+            <span class="search-item-title">${item.title}</span>
+            <span class="search-item-desc">${item.desc}</span>
+          </div>
+        `).join('');
+      }
+
+      resultsContainer.classList.add('active');
+    }
+
+    function selectSearchResult(sectionId) {
+      document.getElementById('searchResults').classList.remove('active');
+      document.getElementById('searchInput').value = '';
+      navigateToSection(sectionId);
+    }
+
+    // KEYBOARD SHORTCUT (Ctrl+K / Cmd+K)
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        const searchInput = document.getElementById('searchInput');
+        searchInput.focus();
+        searchInput.select();
+      }
+    });
+
+    // HIDE SEARCH RESULTS ON CLICK OUTSIDE
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.search-wrapper')) {
+        document.getElementById('searchResults').classList.remove('active');
+      }
+    });
+
+    // INITIALIZE SCROLLSPY ON LOAD
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollspy();
+    });
+  </script>
+</body>
+</html>
