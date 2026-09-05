@@ -1,21 +1,21 @@
 ﻿{
-    "version":  "0.0.6",
-    "pub_date":  "2026-08-31T11:04:52Z",
-    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.6/medicare-windows-setup-0.0.6.exe",
-    "sha256":  "3b7dc5303b16534565403d9e3e69c626dac02473149c0c6979f3bb8072986b63",
-    "notes":  "Medicare Release 0.0.6",
+    "version":  "0.0.7",
+    "pub_date":  "2026-09-05T12:45:47Z",
+    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.7/medicare-windows-setup-0.0.7.exe",
+    "sha256":  "17a7de5df94973ee52f59d004e1bdd6eccb1a98867912f5545198084dbac0532",
+    "notes":  "Medicare Release 0.0.7",
     "windows":  {
-                    "version":  "0.0.6",
-                    "pub_date":  "2026-08-31T11:04:52Z",
-                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.6/medicare-windows-setup-0.0.6.exe",
-                    "sha256":  "3b7dc5303b16534565403d9e3e69c626dac02473149c0c6979f3bb8072986b63",
-                    "notes":  "Medicare Windows Release 0.0.6"
+                    "version":  "0.0.7",
+                    "pub_date":  "2026-09-05T12:45:47Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.7/medicare-windows-setup-0.0.7.exe",
+                    "sha256":  "17a7de5df94973ee52f59d004e1bdd6eccb1a98867912f5545198084dbac0532",
+                    "notes":  "Medicare Windows Release 0.0.7"
                 },
     "android":  {
-                    "version":  "0.0.6",
-                    "pub_date":  "2026-08-31T11:04:52Z",
-                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.6/medicare-android-0.0.6.apk",
-                    "sha256":  "992d63be263cd8c66b2e137bafbd646db95cfb2aff1ed58aa4d8b9d213cc116a",
-                    "notes":  "Medicare Android Release 0.0.6"
+                    "version":  "0.0.7",
+                    "pub_date":  "2026-09-05T12:45:47Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.0.7/medicare-android-0.0.7.apk",
+                    "sha256":  "1f1adf727e86fe7c4d62e48770c974114736af73d54f96c7d549cdbd89230e30",
+                    "notes":  "Medicare Android Release 0.0.7"
                 }
 }
