@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Orion PK builds minimal, fast, and offline-first software and mobile applications for local businesses and everyday workflows.">
+    <meta name="author" content="Orion PK">
+
+    <!-- OG Meta Tags -->
+    <meta property="og:site_name" content="Orion PK" />
+    <meta property="og:title" content="Orion PK — Apps & Software" />
+    <meta property="og:description" content="Minimal, offline-first software and mobile applications." />
+    <meta property="og:type" content="website" />
+
+    <title>Orion PK — Apps & Software</title>
+
+    <!-- Google Fonts (Poppins & Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            color: #626262;
+            font-family: "Raleway", sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #00bfd8;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            color: #009cb0;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #393939;
+            font-family: "Raleway", sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #edf2f7;
+            padding: 22px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        /* Scrolled state: turns the navbar into the button blue */
+        .navbar.scrolled {
+            background-color: #00bfd8;
+            border-bottom-color: #00bfd8;
+            box-shadow: 0 4px 20px rgba(0, 191, 216, 0.3);
+            padding: 16px 0;
+        }
+
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            font-family: "Poppins", sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: #393939;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand span {
+            color: #00bfd8;
+            transition: color 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: #ffffff;
+        }
+
+        .navbar.scrolled .navbar-brand span {
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #393939;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00bfd8;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: #ffffff;
+        }
+
+        .navbar.scrolled .nav-links a:hover {
+            color: #111827;
+        }
+
+        /* Hero Header */
+        .header {
+            background: #ffffff;
+            padding: 90px 0 70px;
+            text-align: center;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            line-height: 1.25;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            color: #00bfd8;
+        }
+
+        .header p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #626262;
+            max-width: 680px;
+            margin: 0 auto 30px;
+        }
+
+        /* Buttons (Evolo style) */
+        .btn-solid-lg {
+            display: inline-block;
+            padding: 14px 30px;
+            border: 2px solid #00bfd8;
+            border-radius: 32px;
+            background-color: #00bfd8;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 191, 216, 0.25);
+        }
+
+        .btn-solid-lg:hover {
+            background-color: transparent;
+            color: #00bfd8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 191, 216, 0.35);
+        }
+
+        .btn-solid-sm {
+            display: inline-block;
+            padding: 10px 22px;
+            border: 2px solid #00bfd8;
+            border-radius: 28px;
+            background-color: #00bfd8;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-solid-sm:hover {
+            background-color: transparent;
+            color: #00bfd8;
+        }
+
+        .btn-outline-sm {
+            display: inline-block;
+            padding: 10px 22px;
+            border: 2px solid #00bfd8;
+            border-radius: 28px;
+            background-color: transparent;
+            color: #00bfd8;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-outline-sm:hover {
+            background-color: #00bfd8;
+            color: #ffffff;
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header .section-tag {
+            color: #00bfd8;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #626262;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services / Products Section */
+        .services {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 36px 30px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .card:hover {
+            border-color: #00bfd8;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .card .card-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            color: #00bfd8;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #626262;
+            margin-bottom: 24px;
+        }
+
+        .card .card-action {
+            margin-top: auto;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+            border-top: 1px solid #edf2f7;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .about-box {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .about-box h4 {
+            font-size: 18px;
+            color: #393939;
+            margin-bottom: 10px;
+        }
+
+        .about-box p {
+            font-size: 14px;
+            color: #626262;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #4a5568;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: #00bfd8;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a class="navbar-brand" href="index.html">
+                Orion <span>PK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#software">Software</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="header">
+        <div class="container">
+            <h1>Minimal & Offline-First <span>Software</span></h1>
+            <p>
+                Orion PK crafts lightweight, fast, and purpose-built software and mobile applications for businesses, tailors, clinics, and retail stores.
+            </p>
+            <div>
+                <a href="#software" class="btn-solid-lg">Explore Software</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Software & Products Section -->
+    <section id="software" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Products</span>
+                <h2>Software & Applications</h2>
+                <p>Designed for reliability, speed, and complete offline data ownership.</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1: Naaply -->
+                <div class="card">
+                    <div>
+                        <div class="card-subtitle">Mobile Application • Android</div>
+                        <h3>Naaply</h3>
+                        <p>
+                            Offline tailoring order and measurement management app with a native Urdu (RTL) interface. Features custom naap fields, customer management, WhatsApp order slips, and Google Drive backup.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://play.google.com/store/apps/details?id=pk.orion.tailorshop" target="_blank" class="btn-solid-sm">Get on Google Play &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 2: MediCare -->
+                <div class="card">
+                    <div>
+                        <div class="card-subtitle">Desktop & Mobile Application</div>
+                        <h3>MediCare</h3>
+                        <p>
+                            Clinic and pharmacy management software. Streamlines doctor prescription generation, maintains patient medical history, manages pharmacy inventory with stock alerts, and handles fast billing.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a id="medicare-release-btn" href="https://github.com/orion-pk/releases/releases/tag/medicare-v0.0.9" target="_blank" class="btn-outline-sm">Latest Release &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Orion POS / ShopFlow -->
+                <div class="card">
+                    <div>
+                        <div class="card-subtitle">Desktop & Retail Software</div>
+                        <h3>ShopFlow POS</h3>
+                        <p>
+                            Fast point of sale and inventory management software for merchants and shops. Features barcode scanning support, thermal receipt printing, daily profit/loss ledger, and 100% offline database.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a id="shopflow-release-btn" href="https://github.com/orion-pk/releases/releases/tag/shopflow-v0.0.4" target="_blank" class="btn-outline-sm">Latest Release &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2>Built for Everyday Performance</h2>
+                <p>We believe business software should be fast, private, and simple to operate.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-box">
+                    <h4>100% Offline-First Architecture</h4>
+                    <p>
+                        Your customer records and transactions remain on your device. No forced cloud sign-ups or subscription lock-ins.
+                    </p>
+                </div>
+                <div class="about-box">
+                    <h4>Engineered for Speed</h4>
+                    <p>
+                        Lightweight software without unnecessary bloat. Instant startup times, fast navigation, and low system resource consumption.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Orion PK. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#software">Software</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="https://github.com/orion-pk" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Smooth 300ms scroll animation for internal links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || !targetId) return;
+                const targetElem = document.querySelector(targetId);
+                if (!targetElem) return;
+
+                e.preventDefault();
+                const navHeight = document.querySelector('.navbar')?.offsetHeight || 75;
+                const targetPos = targetElem.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                const startPos = window.pageYOffset;
+                const distance = targetPos - startPos;
+                const duration = 300; // 300ms smooth transition
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (!startTime) startTime = currentTime;
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease-in-out quadratic smoothing
+                    const ease = progress < 0.5 
+                        ? 2 * progress * progress 
+                        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+                    window.scrollTo(0, startPos + (distance * ease));
+
+                    if (elapsed < duration) {
+                        window.requestAnimationFrame(animation);
+                    } else {
+                        window.scrollTo(0, targetPos);
+                    }
+                }
+
+                window.requestAnimationFrame(animation);
+            });
+        });
+    </script>
+
+    <!-- Automatically fetch the newest release URLs dynamically from GitHub API -->
+    <script>
+        (async function fetchLatestReleases() {
+            try {
+                const res = await fetch('https://api.github.com/repos/orion-pk/releases/releases');
+                if (!res.ok) return;
+                const releases = await res.json();
+                
+                // Find latest Medicare release
+                const latestMedicare = releases.find(r => r.tag_name && r.tag_name.startsWith('medicare-'));
+                if (latestMedicare && latestMedicare.html_url) {
+                    const btn = document.getElementById('medicare-release-btn');
+                    if (btn) btn.href = latestMedicare.html_url;
+                }
+
+                // Find latest ShopFlow / POS release
+                const latestShopFlow = releases.find(r => r.tag_name && (r.tag_name.startsWith('shopflow-') || r.tag_name.startsWith('pos-')));
+                if (latestShopFlow && latestShopFlow.html_url) {
+                    const btn = document.getElementById('shopflow-release-btn');
+                    if (btn) btn.href = latestShopFlow.html_url;
+                }
+            } catch (e) {
+                // Silently keep static fallback URLs
+            }
+        })();
+    </script>
+
+    <!-- Navbar background scroll handler -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
