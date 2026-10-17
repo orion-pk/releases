@@ -1,21 +1,21 @@
 ﻿{
-    "version":  "0.1.1",
-    "pub_date":  "2026-10-07T17:22:45Z",
-    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.1.1/medicare-windows-setup-0.1.1.exe",
-    "sha256":  "1f2a347eca38dcdafef0673ac356f13d0740f48a64e07040006458d1a84a96c3",
-    "notes":  "Medicare Release 0.1.1",
+    "version":  "0.1.2",
+    "pub_date":  "2026-10-17T11:05:26Z",
+    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.1.2/medicare-windows-setup-0.1.2.exe",
+    "sha256":  "ecbe53ac03b3bcfcf8f5a08facc29ffcc7c62bfc546d092d51c26bfa1298e5cc",
+    "notes":  "Medicare Release 0.1.2",
     "windows":  {
-                    "version":  "0.1.1",
-                    "pub_date":  "2026-10-07T17:22:45Z",
-                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.1.1/medicare-windows-setup-0.1.1.exe",
-                    "sha256":  "1f2a347eca38dcdafef0673ac356f13d0740f48a64e07040006458d1a84a96c3",
-                    "notes":  "Medicare Windows Release 0.1.1"
+                    "version":  "0.1.2",
+                    "pub_date":  "2026-10-17T11:05:26Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.1.2/medicare-windows-setup-0.1.2.exe",
+                    "sha256":  "ecbe53ac03b3bcfcf8f5a08facc29ffcc7c62bfc546d092d51c26bfa1298e5cc",
+                    "notes":  "Medicare Windows Release 0.1.2"
                 },
     "android":  {
-                    "version":  "0.1.1",
-                    "pub_date":  "2026-10-07T17:22:45Z",
-                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.1.1/medicare-android-0.1.1.apk",
-                    "sha256":  "7e1fce2895d0dda816d5c1e8c21b8ac9715748080303dab5758d4e16ef97b5fb",
-                    "notes":  "Medicare Android Release 0.1.1"
+                    "version":  "0.1.2",
+                    "pub_date":  "2026-10-17T11:05:26Z",
+                    "url":  "https://github.com/orion-pk/releases/releases/download/medicare-v0.1.2/medicare-android-0.1.2.apk",
+                    "sha256":  "a1a9bd071a22267e095c2a274d9fa575127562977e604fd6a28954fb533b811d",
+                    "notes":  "Medicare Android Release 0.1.2"
                 }
 }
